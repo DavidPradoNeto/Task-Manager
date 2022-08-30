@@ -19,20 +19,22 @@ public class TaskManager {
             switch (opt) {
                 case "1" -> {
                     System.out.println("\nDigite a tarefa que sera ADICIONADA:");
-                    task = sc.nextLine().toLowerCase();
+                    task = sc.nextLine();
                     tarefasDb.add(task);
                 }
                 case "2" -> {
+                    int i = 1;
                     System.out.println("\n-------------------------------");
-                    for (String tarefa : tarefasDb) {
-                        System.out.println(tarefa);
+                    for (String tarefa : tarefasDb){
+                        System.out.println(i+" - "+tarefa);
+                        i++;
                     }
                     System.out.println("-------------------------------");
                 }
                 case "3" -> {
-                    System.out.println("\nDigite a tarefa que sera REMOVIDA:");
-                    task = sc.nextLine().toLowerCase();
-                    tarefasDb.remove(task);
+                    System.out.println("\nDigite o numero tarefa que sera REMOVIDA:");
+                    task = sc.nextLine();
+                    tarefasDb.remove(Integer.parseInt(task) - 1);
                 }
                 case "4" -> {
                     continuar = false;
